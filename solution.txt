@@ -1,0 +1,44 @@
+https://drive.google.com/open?id=1zfEuMwJKamq3o80hMLa2zKFOt5q84S6w
+
+
+
+Function Generate Password
+  The variables lower, upper, digits, punctuation contain the respective collection of
+  Lower Case Alphabets, Upper Case Alphabets, Numbers and special characters available in ascii.
+
+  Complexity 1:
+    The statement randomly selects the number of lower case characters
+
+  Complexity 2:
+    For the password to be of complexity 2 it has to have at least 1 digit.
+    When the length of the string is too small the randomly generated values of digits plus lower case sometimes
+    turns out to be only lowercase or only digits. To avoid such a case I have randomly chosen a lower case and a
+    digit , appended it to the password and then randomly generated the rest of the password (length - 2) using the
+    combination of digits and lowercase.
+
+  Complexity 3:
+    I have generated the password using the same method as in previous level.
+
+  Complexity 4:
+    I have generated the password using the same method as in previous level.
+
+Function Check Password level
+  This function determines the complexity level of the password and returns it.
+  Initially I'm counting the number of lowercase, digit, uppercase and special characters in the given password.
+  And then based on the constraints I have determined the complexity level.
+
+Function Create user
+  This function connects to database and inserts the random user details retrieved from the API into the database.
+  To connect to the API I have used request module. The received data is in the format of JSON. I have obtained the user's first name,
+  user's last name and have appended them together into name. I have also obtained the email address from the JSON.
+  Using sqlite3 Database I have connected to the database and inserted the name and email into the database.
+
+Function Update Password
+  This functions retrives a user and generates a password randomly and then stores the password in the database against the specific user.
+  Retrieved the data of 10 users from the user table in the database and stored the result in an array.
+  For each user, I have generated a random password using the function generate password. The generated
+  password was then pushed into the database for the respective user into the user table.
+
+Function check
+  This function does the unit testing where it tests the complexity level of the generated password with its respective password level.
+  If the assertion is true then the function returns True.
